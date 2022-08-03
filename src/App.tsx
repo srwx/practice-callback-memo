@@ -1,3 +1,11 @@
+import { WithMemo, WithoutMemo } from "./components/Memo/Memo"
+
 export default function App() {
-  return <div className="App">Hello</div>
+  return (
+    <>
+      <WithoutMemo />
+      <div>----------------</div>
+      <WithMemo />
+    </>
+  )
 }
