@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 
 const slowFunction = (num: number) => {
   console.log("Call slowFunction...")
@@ -62,6 +62,15 @@ export const WithMemo = () => {
     backgroundColor: dark ? "black" : "white",
     color: dark ? "white" : "black",
   }
+
+  /* Note: useEffect() จะรันทุกรอบที่มีการ rerender เพราะใน js, object เป็น reference type
+   * ทำให้ เมื่อ rerender -> ตัวแปร themeStyle ที่เป็น object จะสร้างตัวใหม่ขึ้นมา ที่ reference ต่างจากเดิม
+   * เมื่อ themeStyle ต่างจากเดิม -> themeStyle เปลี่ยน -> useEffect() ทำงาน
+   * วิธีแก้คือ เอาตัวแปรทีเ่ป็น reference type ครอบด้วย useMemo() (ถ้าตัวแปร reference ต้องใส่ใน array of dependencies)
+   */
+  //   useEffect(() => {
+  //     console.log(themeStyle)
+  //   }, [themeStyle])
 
   console.log("_________render_________")
   return (
