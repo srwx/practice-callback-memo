@@ -1,11 +1,10 @@
+import { Callback } from "./components/Callback/Callback"
 import { WithMemo, WithoutMemo } from "./components/Memo/Memo"
 
 export default function App() {
   return (
     <>
-      <WithoutMemo />
-      <div>----------------</div>
-      <WithMemo />
+      <Callback />
     </>
   )
 }
